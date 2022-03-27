@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Input your cards</span>
+        </div>
+        <textarea class="form-control" aria-label="input your cards" #deck></textarea>
+    </div> <br/>
+
+    <button type="button" class="btn btn-info" (click)="sort(deck.value)">Sort</button> <br/>
+
+    <div class="alert alert-danger" role="alert" style="margin-top: 1em;" *ngIf="this.isError">
+        Invalid! Please enter valid values
+    </div>
+    
+    <div *ngIf="isEmpty()">
+        <div class="card" style="width: 10rem;height: 4em;margin-top: 1em;" *ngFor="let card of cards">
+        <div class="card-body">
+            <h5 class="card-title">{{card}}</h5>
+        </div>
+        </div>
+    </div>
+</div>
